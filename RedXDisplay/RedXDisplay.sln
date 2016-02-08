@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXTextDisplay", "RedXTextDisplay\RedXTextDisplay.csproj", "{27EE9D1F-9C62-4306-92C8-DF60B1D6417D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXRegulator", "..\RedXService\RedXRegulator\RedXRegulator.csproj", "{630D1E0C-62B4-4B7B-8D40-9F159E7A9DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXDisplayWpf", "RedXDisplayWpf\RedXDisplayWpf.csproj", "{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27EE9D1F-9C62-4306-92C8-DF60B1D6417D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27EE9D1F-9C62-4306-92C8-DF60B1D6417D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27EE9D1F-9C62-4306-92C8-DF60B1D6417D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27EE9D1F-9C62-4306-92C8-DF60B1D6417D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630D1E0C-62B4-4B7B-8D40-9F159E7A9DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630D1E0C-62B4-4B7B-8D40-9F159E7A9DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630D1E0C-62B4-4B7B-8D40-9F159E7A9DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630D1E0C-62B4-4B7B-8D40-9F159E7A9DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
