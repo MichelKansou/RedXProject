@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXTextDisplay", "RedXTextDisplay\RedXTextDisplay.csproj", "{27EE9D1F-9C62-4306-92C8-DF60B1D6417D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXDisplay_WinForm", "RedXTextDisplay\RedXDisplay_WinForm.csproj", "{27EE9D1F-9C62-4306-92C8-DF60B1D6417D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXRegulator", "..\RedXService\RedXRegulator\RedXRegulator.csproj", "{630D1E0C-62B4-4B7B-8D40-9F159E7A9DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXDisplayWpf", "RedXDisplayWpf\RedXDisplayWpf.csproj", "{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXDisplay_Wpf", "RedXDisplayWpf\RedXDisplay_Wpf.csproj", "{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXAssemblyauncher", "RedXLauncher\RedXAssemblyauncher.csproj", "{13582C0D-25BF-4DC4-BA87-F36122C80291}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXApplication", "RedXMainAppAssembly\RedXApplication.csproj", "{5E7FEC8E-3CBC-4B56-B634-2B3329F09C5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXLocalService", "RedXLocalService\RedXLocalService.csproj", "{D6C09677-CB4E-4F1C-A220-C9C227901064}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXInitialLauncher", "RedXInitialLauncher\RedXInitialLauncher.csproj", "{5B2D8358-7B94-4247-947F-F687B41A4087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,22 @@ Global
 		{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13582C0D-25BF-4DC4-BA87-F36122C80291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13582C0D-25BF-4DC4-BA87-F36122C80291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13582C0D-25BF-4DC4-BA87-F36122C80291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13582C0D-25BF-4DC4-BA87-F36122C80291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7FEC8E-3CBC-4B56-B634-2B3329F09C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7FEC8E-3CBC-4B56-B634-2B3329F09C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7FEC8E-3CBC-4B56-B634-2B3329F09C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7FEC8E-3CBC-4B56-B634-2B3329F09C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6C09677-CB4E-4F1C-A220-C9C227901064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6C09677-CB4E-4F1C-A220-C9C227901064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6C09677-CB4E-4F1C-A220-C9C227901064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6C09677-CB4E-4F1C-A220-C9C227901064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B2D8358-7B94-4247-947F-F687B41A4087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B2D8358-7B94-4247-947F-F687B41A4087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B2D8358-7B94-4247-947F-F687B41A4087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B2D8358-7B94-4247-947F-F687B41A4087}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
