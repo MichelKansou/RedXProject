@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXRegulator", "..\RedXSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXDisplay_Wpf", "RedXDisplayWpf\RedXDisplay_Wpf.csproj", "{3CBB9B7B-170B-4FAC-AE77-8ACEFBBE23C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXAssemblyauncher", "RedXLauncher\RedXAssemblyauncher.csproj", "{13582C0D-25BF-4DC4-BA87-F36122C80291}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXAssemblyLauncher", "RedXLauncher\RedXAssemblyLauncher.csproj", "{13582C0D-25BF-4DC4-BA87-F36122C80291}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXApplication", "RedXMainAppAssembly\RedXApplication.csproj", "{5E7FEC8E-3CBC-4B56-B634-2B3329F09C5E}"
 EndProject
