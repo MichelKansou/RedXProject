@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace RedXLocalService
 {
-    public partial class Service1 : ServiceBase
+    public partial class RedXInfoService : ServiceBase
     {
-        public Service1()
+        public RedXInfoService()
         {
             InitializeComponent();
         }

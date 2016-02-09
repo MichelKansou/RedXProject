@@ -9,7 +9,7 @@ namespace RedX.Regulator.Utility{
         // Source, Base, Integrated Security
         #region Utilities / Membres
         private static String _SOURCE = "Data Source = (localdb)\\ProjectsV12";
-        private static String _DBNAME = "Initial Catalog = RedXDatabase";
+        private static String _DBNAME = @"AttachDbFilename = C:\Users\Axel\Source\Repos\RedXProject\RedXDisplay\RedXDatabaseIntegrator\SSDTRedXDatabase_Primary.mdf";
         private static String _INSECU = "Integrated Security = True";
 
         private static String _PERF_TABLE = "Performance";

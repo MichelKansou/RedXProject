@@ -5,19 +5,15 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedXLocalService
-{
-    static class Program
-    {
+namespace RedXLocalService{
+    static class Program{
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static void Main()
-        {
+        static void Main(){
             ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
-            {
-                new Service1()
+            ServicesToRun = new ServiceBase[]{
+                new RedXInfoService()
             };
             ServiceBase.Run(ServicesToRun);
         }
