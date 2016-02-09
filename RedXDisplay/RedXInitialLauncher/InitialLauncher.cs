@@ -21,29 +21,29 @@ namespace RedX.Launcher{
             }
 
             if(args[0] == LaunchOption){
-                Process[] pname = Process.GetProcessesByName(ProcessName);
-                if (pname.Length >= 1){
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.Error.WriteLine("Impossible de démarrer le programme car le processus est déjà en cours d'exécution.");
-                    Console.ReadKey();
-                    return;
-                }
-
-                try{
+                try {
+                    Process[] pname = Process.GetProcessesByName(ProcessName);
+                    if (pname.Length >= 1){
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.Error.WriteLine("Impossible de démarrer le programme car le processus est déjà en cours d'exécution.");
+                        Console.ReadKey();
+                        return;
+                    }
                     if (SystemDiagnostics.CanLaunch()){
                         var displayType = Console.ReadLine(); // Choisir entre --Text, --Image ou --Video (ce dernier ne sera pas utilisé)
                         var process = new Process();
 
-                        process.StartInfo.FileName =  Const.Const.GetCurrentDir + "RedXDisplay_WinForm.exe"; // Définir le chemin d'accès au processus
+                        process.StartInfo.FileName = Const.Const.GetCurrentDir + "RedXDisplay_WinForm.exe"; // Définir le chemin d'accès au processus
                         process.StartInfo.Arguments = "--" + displayType;
                         process.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
                         process.Start();
-                    }
-
-                        
+                    }    
                 } catch(LauncherGenericException e){
                     Console.Error.WriteLine("Le processus ne peut être démarré dû à un des composants suivant: Usage CPU ou usage RAM.");
                     Environment.Exit((int)(e.Status));
+                } catch(Exception e){
+                    Console.Error.WriteLine("Une erreur inconnue bloque le démarrage de l'application.");
+                    Environment.Exit((int)(ExceptionStatus.INTERRUPT));
                 }
             }
 
