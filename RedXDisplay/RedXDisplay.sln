@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXLocalService", "RedXLoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXInitialLauncher", "RedXInitialLauncher\RedXInitialLauncher.csproj", "{5B2D8358-7B94-4247-947F-F687B41A4087}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RX_DatabaseTemplate0", "RX_DatabaseTemplate0\RX_DatabaseTemplate0.sqlproj", "{69148815-A7CF-4C4E-B18C-AE21CC45998A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{5B2D8358-7B94-4247-947F-F687B41A4087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B2D8358-7B94-4247-947F-F687B41A4087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B2D8358-7B94-4247-947F-F687B41A4087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69148815-A7CF-4C4E-B18C-AE21CC45998A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69148815-A7CF-4C4E-B18C-AE21CC45998A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69148815-A7CF-4C4E-B18C-AE21CC45998A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{69148815-A7CF-4C4E-B18C-AE21CC45998A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69148815-A7CF-4C4E-B18C-AE21CC45998A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69148815-A7CF-4C4E-B18C-AE21CC45998A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
