@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RedXLauncher\RedXAssemblyLauncher.csproj">
+    <ProjectReference Include="..\RedXLauncher\RedXEnvironmentAssembly.csproj">
       <Project>{13582c0d-25bf-4dc4-ba87-f36122c80291}</Project>
-      <Name>RedXAssemblyLauncher</Name>
+      <Name>RedXEnvironmentAssembly</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

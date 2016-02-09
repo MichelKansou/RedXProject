@@ -7,8 +7,8 @@
     <ProjectGuid>{13582C0D-25BF-4DC4-BA87-F36122C80291}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RedXLauncher</RootNamespace>
-    <AssemblyName>RedXLauncher</AssemblyName>
+    <RootNamespace>RedX.Diagnostics</RootNamespace>
+    <AssemblyName>RedXEnvironmentAssembly</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

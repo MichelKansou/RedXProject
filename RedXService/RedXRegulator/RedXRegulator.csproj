@@ -42,6 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regulator\Utility\Const.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Regulator\DBAccess\Enum\" />
+    <Folder Include="Regulator\DBAccess\Exceptions\" />
+    <Folder Include="Regulator\DBAccess\Generics\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

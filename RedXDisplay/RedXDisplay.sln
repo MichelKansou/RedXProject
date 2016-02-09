@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXDisplay_WinForm", "RedX
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXRegulator", "..\RedXService\RedXRegulator\RedXRegulator.csproj", "{630D1E0C-62B4-4B7B-8D40-9F159E7A9DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXAssemblyLauncher", "RedXLauncher\RedXAssemblyLauncher.csproj", "{13582C0D-25BF-4DC4-BA87-F36122C80291}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXEnvironmentAssembly", "RedXLauncher\RedXEnvironmentAssembly.csproj", "{13582C0D-25BF-4DC4-BA87-F36122C80291}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedXLocalService", "RedXLocalService\RedXLocalService.csproj", "{D6C09677-CB4E-4F1C-A220-C9C227901064}"
 EndProject

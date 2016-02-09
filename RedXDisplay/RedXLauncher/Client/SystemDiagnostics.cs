@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using RedX.Diagnostics.Client.Exceptions;
 
+
+
 namespace RedX.Diagnostics.Client{
     public class SystemDiagnostics{
         public static double[] SystemInfo(){
@@ -16,14 +18,13 @@ namespace RedX.Diagnostics.Client{
 
             using (var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total", true)) {
                 cCounter = (int)cpuCounter.NextValue();
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(1000);
                 cCounter = (int)cpuCounter.NextValue();
-
             }
 
             using (var ram = new PerformanceCounter("Memory", "Available MBytes", true)) {
                 rCounter = (int)ram.NextValue();
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(1000);
                 rCounter = (int)ram.NextValue();
             }
 
@@ -36,13 +37,15 @@ namespace RedX.Diagnostics.Client{
 
         public static bool CanLaunch(){
             var diagnostic = SystemInfo();
+            CanLaunch(diagnostic[0], diagnostic[1], null);
+            return true;
+        }
 
-            if (diagnostic[0] > Util.PER_MAX_CPU)
+        public static bool CanLaunch(double cpu, double ram, double? disk){
+            if(cpu > Util.PER_MAX_CPU)
                 throw new CpuException("Quantité de CPU insuffisant.", ExceptionStatus.INTERRUPT);
-
-            if (diagnostic[1] > Util.PER_MAX_RAM)
+            if(ram > Util.PER_MAX_RAM)
                 throw new RamException("Quantité de RAM insuffisante.", ExceptionStatus.INTERRUPT);
-
             return true;
         }
     }
