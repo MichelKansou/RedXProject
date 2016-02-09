@@ -14,7 +14,7 @@ namespace RedX.Regulator.DBAccess.Framework{
             try {
                 r_connector = new RawConnector();
             } catch(Exception e){
-                throw new RawInitException(e, "Err_RawConnectorImpossibleConnection", ExceptionGravity.SEVERE);
+                throw new RawInitException(e, "Err_RawConnectorImpossibleConnection " + e.Message +","+e.StackTrace , ExceptionGravity.SEVERE);
             }
         }
 

@@ -12,10 +12,11 @@ namespace RedX.Regulator.Utility{
         #region Utilities / Membres
         private static String _SOURCE = "Data Source = (localdb)\\ProjectsV12";
         // Répertoire à changer
-        private static String _DBNAME = "AttachDbFilename = " + (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)) + "/SSDTRedXDatabase_Primary.mdf";
+        private static String _DBNAME = "Initial Catalog = RedXDatabase";
+        
         private static String _INSECU = "Integrated Security = True";
 
-        private static String _PERF_TABLE = "Performance";
+        private static String _PERF_TABLE = "Performances";
         private static String _OS_TABLE = "OS";
         private static String _TABLE = "Tables";
         private static String _INSERT = "Insert into @table values";

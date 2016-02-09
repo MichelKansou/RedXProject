@@ -1,4 +1,5 @@
-﻿using RedX.Regulator.DBAccess.Generics;
+﻿using RedX.Regulator.DBAccess.Collection;
+using RedX.Regulator.DBAccess.Generics;
 using RedX.Regulator.System;
 using RedX.Regulator.Utility;
 using System;
@@ -55,7 +56,7 @@ namespace RedX.Regulator.DBAccess{
         }
 
         private String QueryParameters(SysInfo info){
-            return /*"(" + info.Date.ToString() + */"( @date," + GetOsByName(info.Environment) + "," + info.PercentageCPU + "," + info.PercentageRAM +")";
+            return "( '" + info.Date.ToString("yyyy/MM/dd HH:mm:ss") + "','" + info.Environment + "'," + info.PercentageRAM + "," + info.PercentageCPU +")";
         }
 
         public override Boolean Add(SysInfo info){
@@ -67,7 +68,6 @@ namespace RedX.Regulator.DBAccess{
             OpenConnection();
 
             using (var lastCommand = new SqlCommand(lastQuery, client)){
-                lastCommand.Parameters.Add("@date", SqlDbType.DateTime).Value = info.Date;
                 hResult = lastCommand.ExecuteNonQuery();
             }
 
@@ -75,14 +75,14 @@ namespace RedX.Regulator.DBAccess{
             return (hResult <= 0); 
         }
 
-        public override Boolean Delete(params SysInfo[] infos){
+        public Boolean Delete(params SysInfo[] infos){
             isSuccessfull = false;
             foreach (var info in infos)
                 isSuccessfull |= Delete(info);
             return isSuccessfull;
         }
 
-        public override Boolean Delete(SysInfo info){
+        public Boolean Delete(SysInfo info){
             return infoCollection.Remove(info);
         }
 
@@ -93,6 +93,10 @@ namespace RedX.Regulator.DBAccess{
         protected override void CheckHistory(){
             if (infoCollection.Count > HistoryLength)
                 infoCollection.RemoveAt(0);
+        }
+
+        public SysInfoCollection History(){
+            return infoCollection;
         }
     }
 }

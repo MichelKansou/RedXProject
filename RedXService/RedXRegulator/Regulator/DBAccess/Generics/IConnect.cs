@@ -10,7 +10,7 @@ namespace RedX.Regulator.DBAccess.Generic{
         void OpenConnection();
         bool Add(T info);
         bool Add(params T[] info);
-        bool Delete(T info);
-        bool Delete(params T[] infos);
+        //bool Delete(T info);
+        //bool Delete(params T[] infos);
     }
 }

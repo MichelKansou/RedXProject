@@ -23,5 +23,8 @@ namespace RedX.Regulator.DBAccess{
         }
 
         public static SqlServerConnector Connector { get { return connector; } }
+        public Collection.SysInfoCollection History(){
+            return connector.History();
+        }
     }
 }

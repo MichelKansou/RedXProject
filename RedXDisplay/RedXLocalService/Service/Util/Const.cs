@@ -38,9 +38,7 @@ namespace RedX.Service.Util{
         public static String GUID { get { return Guid; } }
 
         public static string GetOS(){
-            var name = (from x in new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem").Get().OfType<ManagementObject>()
-                        select x.GetPropertyValue("Caption")).FirstOrDefault();
-            return name != null ? name.ToString() : "Inconnu";
+            return Environment.OSVersion.VersionString;
         }
         #endregion
 

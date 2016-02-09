@@ -61,8 +61,6 @@
     <Folder Include="dbo\Sequences\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="OS.sql" />
-    <Build Include="dbo\Sequences\OS_Id_Sequence.sql" />
     <Build Include="Performances.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -48,7 +48,7 @@ namespace RedX.Launcher{
                         var process = new Process();
 
                         process.StartInfo.FileName = Const.Const.GetCurrentDir /*@"C:\Users\Axel\Source\Repos\RedXProject\RedXDisplay\WindowsFormsApplication1\bin\Debug\"*/ + "WindowsFormsApplication1.exe"; // Définir le chemin d'accès au processus
-                        process.StartInfo.Arguments = "--" + displayType;
+                        process.StartInfo.Arguments = displayType;
                         process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
                         process.Start();
                         StartService();

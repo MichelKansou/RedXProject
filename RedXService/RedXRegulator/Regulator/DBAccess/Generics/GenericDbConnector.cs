@@ -24,8 +24,8 @@ namespace RedX.Regulator.DBAccess.Generics{
 
         public abstract         Boolean Add(T info);
         public abstract         Boolean Add(params T[] infos);
-        public abstract         Boolean Delete(T info);
-        public abstract         Boolean Delete(params T[] infos);
+        //public abstract         Boolean Delete(T info);
+        //public abstract         Boolean Delete(params T[] infos);
         public abstract         void OpenConnection();
         protected abstract      void CheckHistory();
 

@@ -1,4 +1,5 @@
 ﻿using RedX.Diagnostics.Client;
+using RedX.Regulator.DBAccess.Exceptions;
 using RedX.Regulator.DBAccess.Framework;
 using RedX.Regulator.System;
 using RedX.Service;
@@ -18,15 +19,25 @@ using System.Threading.Tasks;
 
 namespace RedXLocalService{
     public partial class RedXInfoService : ServiceBase{
-        private EventLog eLog;
+
         private LogWriter wLog;
         private SecuredConnector sc;
         private SysInfo lastData;
 
         public RedXInfoService(){
             InitializeComponent();
-            wLog = new LogWriter(null, null);
-            sc = new SecuredConnector();
+            
+            try {
+                wLog = new LogWriter(null, null);
+                sc = new SecuredConnector();
+            } catch(RawInitException e){
+                if (e.Gravity <= ExceptionGravity.HIGH){
+                    wLog.WriteIntoFile("Une erreur indiquant une erreur grave est capturée, arrêt de l'application " +  e.Message);
+                    this.Stop();
+                }
+            } catch (Exception e){
+                this.Stop();
+            }
 
             ThreadPool.SetMaxThreads(2, 2);
             ThreadPool.QueueUserWorkItem(delegate { lastData.Environment = Const.GetOS(); });
@@ -84,7 +95,18 @@ namespace RedXLocalService{
                         lastData.PercentageRAM = data[1];
                         lastData.Date = DateTime.Now;
 
-                        sc.Add(lastData);
+                        try {
+                            sc.Add(lastData);
+
+                        } catch(RawConnException e){
+                            if (e.Gravity <= ExceptionGravity.MEDIUM){
+                                wLog.WriteIntoFile("Une erreur pouvant entrainer l'instabilité du système à été détectée, arrêt de l'ajout.");
+                                return;
+                            }
+                            else
+                                wLog.WriteIntoFile("Une erreur sans incidence à été reportée.");
+                        }
+
                         wLog.WriteIntoFile("Données sauvegardées sur la base distante");
                     }
                 );
