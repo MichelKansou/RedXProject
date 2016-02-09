@@ -7,7 +7,7 @@
     <ProjectGuid>{D6C09677-CB4E-4F1C-A220-C9C227901064}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RedXLocalService</RootNamespace>
+    <RootNamespace>RedX</RootNamespace>
     <AssemblyName>RedXLocalService</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -34,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,9 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="RedX.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Service\IO\Generics\GenericFileWriter.cs" />
+    <Compile Include="Service\IO\IWriters\IFWriter.cs" />
+    <Compile Include="Service\IO\LogWriter.cs" />
+    <Compile Include="Service\StateService.cs" />
+    <Compile Include="Service\Util\Const.cs" />
     <Compile Include="Service1.Designer.cs">
       <DependentUpon>RedX.cs</DependentUpon>
     </Compile>
@@ -56,6 +69,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RedXService\RedXRegulator\RedXRegulator.csproj">
+      <Project>{630d1e0c-62b4-4b7b-8d40-9f159e7a9df1}</Project>
+      <Name>RedXRegulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RedXLauncher\RedXEnvironmentAssembly.csproj">
+      <Project>{13582c0d-25bf-4dc4-ba87-f36122c80291}</Project>
+      <Name>RedXEnvironmentAssembly</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

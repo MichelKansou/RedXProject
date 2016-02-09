@@ -54,7 +54,12 @@
     <Compile Include="Regulator\System\SystemInformation.cs" />
     <Compile Include="Regulator\Utility\Const.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\RedXDisplay\RedXDatabaseIntegrator\RedXDatabaseIntegrator.csproj">
+      <Project>{57444429-0ede-415f-b83a-53e899eb46bf}</Project>
+      <Name>RedXDatabaseIntegrator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

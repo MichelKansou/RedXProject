@@ -40,7 +40,7 @@ namespace RedX.Diagnostics.Client{
             CanLaunch(diagnostic[0], diagnostic[1], null);
             return true;
         }
-
+        
         public static bool CanLaunch(double cpu, double ram, double? disk){
             if(cpu > Util.PER_MAX_CPU)
                 throw new CpuException("Quantité de CPU insuffisant.", ExceptionStatus.INTERRUPT);

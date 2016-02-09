@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace RedX.Regulator.Utility{
     public class Const{
         // Source, Base, Integrated Security
         #region Utilities / Membres
         private static String _SOURCE = "Data Source = (localdb)\\ProjectsV12";
-        private static String _DBNAME = @"AttachDbFilename = C:\Users\Axel\Source\Repos\RedXProject\RedXDisplay\RedXDatabaseIntegrator\SSDTRedXDatabase_Primary.mdf";
+        // Répertoire à changer
+        private static String _DBNAME = "AttachDbFilename = " + (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)) + "/SSDTRedXDatabase_Primary.mdf";
         private static String _INSECU = "Integrated Security = True";
 
         private static String _PERF_TABLE = "Performance";

@@ -40,8 +40,10 @@ namespace RedX.Regulator.DBAccess{
         private String GetOsByName(String name){
             m_lock.WaitOne();
             OpenConnection();
-            using (var lastCommand = new SqlCommand("SELECT id FROM OS WHERE OSname = '" + name + "'", client)){
+            using (var lastCommand = new SqlCommand("SELECT id FROM OS WHERE OSname = @name", client)){
+                lastCommand.Parameters.AddWithValue("@name", name);
                 m_lock.ReleaseMutex();
+
                 using (SqlDataReader reader = lastCommand.ExecuteReader()){
                     if (reader.HasRows){
                         reader.Read();
@@ -53,7 +55,7 @@ namespace RedX.Regulator.DBAccess{
         }
 
         private String QueryParameters(SysInfo info){
-            return "(" + GetOsByName(info.Environment) + "," + info.Date.ToString() + "," + info.PercentageCPU + "," + info.PercentageRAM +")";
+            return /*"(" + info.Date.ToString() + */"( @date," + GetOsByName(info.Environment) + "," + info.PercentageCPU + "," + info.PercentageRAM +")";
         }
 
         public override Boolean Add(SysInfo info){
@@ -65,6 +67,7 @@ namespace RedX.Regulator.DBAccess{
             OpenConnection();
 
             using (var lastCommand = new SqlCommand(lastQuery, client)){
+                lastCommand.Parameters.Add("@date", SqlDbType.DateTime).Value = info.Date;
                 hResult = lastCommand.ExecuteNonQuery();
             }
 
