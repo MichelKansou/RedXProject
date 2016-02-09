@@ -41,7 +41,7 @@ namespace RedXRegulatorNunit{
 
             Console.WriteLine(info.Date.ToString("yyyy-MM-dd HH:mm:ss"));
             Console.WriteLine(rc.Add(info));
-            rc.History();
+            Assert.IsTrue(rc.History().Count > 0);
         }
 
         [TestMethod]
@@ -58,7 +58,8 @@ namespace RedXRegulatorNunit{
             info.PercentageRAM = data[1];
             info.Date = DateTime.Now;
 
-            sc.Add(info);
+            Assert.IsFalse(sc.Add(info));
+            
         }
     }
 }
