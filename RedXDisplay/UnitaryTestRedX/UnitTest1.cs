@@ -1,16 +1,23 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitaryTestRedX{
+namespace UnitaryTestRedX
+{
     [TestClass]
-    public class UnitTest1{
+    public class UnitTest1
+    {
         [TestMethod]
-        public void TestMethodConnexionWithFakeLogin(){
+        public void TestMethodConnexionWithFakeLogin()
+        {
             bool success = true;
-            try{ 
+            try
+            {
+                
                 success = false;
+                
             }
-            catch{
+            catch
+            {
 
             }
             Assert.AreEqual(false, success, "Connexion à la base avec de faux identifiants");

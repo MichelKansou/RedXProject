@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="RedXLocalService.Program">
+    <Position X="8.5" Y="0.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedXLocalService.ProjectInstaller">
+    <Position X="8.5" Y="6.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAAAAAAACAAAACAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProjectInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedXLocalService.RedXInfoService">
+    <Position X="8.5" Y="1.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AJAAAAAAACABAAAgEICAACBCAEAAAAAAAEAAABAQAAA=</HashCode>
+      <FileName>RedX.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Service.IO.Generics.GenericFileWriter">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQCBAAAAAQAAAAAAAAEAAAAAAAAAAAAUQA=</HashCode>
+      <FileName>Service\IO\Generics\GenericFileWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RedX.Service.IO.LogWriter">
+    <Position X="0.5" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\IO\LogWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Service.Util.Const">
+    <Position X="5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAgACAAIAAAICAAEAAEASABAABAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Util\Const.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="RedX.Service.ServiceStatus">
+    <Position X="2.75" Y="7" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAggAAAAAAAAAAQAAAAAEQAAAAAIAAAAAQAA=</HashCode>
+      <FileName>Service\StateService.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="RedX.Service.IO.IWriter.IFWriter">
+    <Position X="0.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\IO\IWriters\IFWriter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="RedX.Service.ServiceState">
+    <Position X="5.25" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAACBAAAAAIAAAAAAAACAAAgAAAAAEAAAAAA=</HashCode>
+      <FileName>Service\StateService.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

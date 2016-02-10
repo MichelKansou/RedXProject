@@ -9,16 +9,26 @@ using System.Threading.Tasks;
 
 namespace RedX.Launcher{
 
-    public class ImpersonateUser{        
+    public class ImpersonateUser{
 
+        /// <summary>
+        /// Import Log function from Advapi dll
+        /// </summary>
+        /// <param name="lpszUsername">     Nom utilisateur</param>
+        /// <param name="lpszDomain">       Domaine (optionnel) </param>
+        /// <param name="lpszPassword">     Mot de passe utilisateur (optionnel) </param>
+        /// <param name="dwLogonType">      Type de connection </param>
+        /// <param name="dwLogonProvider">  Type de Logon provider</param>
+        /// <param name="phToken">          A pointer to a handle variable that receives a handle to a token that represents the specified user</param>
+        /// <returns></returns>
         [DllImport("advapi32.dll", SetLastError = true)]
         public static extern bool LogonUser(
-                                    String lpszUsername,
-                                    String lpszDomain,
+                                    String lpszUsername,    // long pointer to a null-terminated string : lpsz
+                                    String lpszDomain,      // 
                                     String lpszPassword,
                                     int dwLogonType,
                                     int dwLogonProvider,
-                                    ref IntPtr phToken
+                                    ref IntPtr phToken  // native (platform-specific) size integer ~ Pointer sur void*
             );
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
@@ -27,7 +37,6 @@ namespace RedX.Launcher{
         private static WindowsImpersonationContext impersonatedUser;
         // If you incorporate this code into a DLL, be sure to demand that it
         // runs with FullTrust.
-
 
         [PermissionSetAttribute(SecurityAction.Demand, Name = "FullTrust")]
         public void Impersonate(string domainName, string userName, string password){

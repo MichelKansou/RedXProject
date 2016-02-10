@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="RedX.Regulator.DBAccess.Collection.SysInfoCollection" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\Collection\SysInfoCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Regulator.DBAccess.Exceptions.DbGenericException">
+    <Position X="0.5" Y="0.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEAAAAAAEAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Regulator\DBAccess\Exceptions\DbGenericException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Regulator.DBAccess.Exceptions.RawConnException">
+    <Position X="3.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\Exceptions\RawConnException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Regulator.DBAccess.Exceptions.RawInitException">
+    <Position X="0.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\Exceptions\RawInitException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Regulator.DBAccess.Framework.SecuredConnector">
+    <Position X="6" Y="1.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\Framework\SecuredConnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Regulator.DBAccess.Generics.GenericDbConnector&lt;T&gt;">
+    <Position X="0.5" Y="6" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAABAAAAAgBAQAABAAQAAAAAAEAAADAAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\Generics\GenericDbConnector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RedX.Regulator.DBAccess.RawConnector">
+    <Position X="9.75" Y="0.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAACAAAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\RawConnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Regulator.DBAccess.SqlServerConnector">
+    <Position X="0.5" Y="9.75" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAABACAAAAIAAAAAAAQEAAAAAAAACAIAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\SqlServerConnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedX.Regulator.Utility.Const">
+    <Position X="9.75" Y="3.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>RBYAAAACAAAAAAIAAAAAAAAAAWAAgASAAAAAAAAAAgA=</HashCode>
+      <FileName>Regulator\Utility\Const.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="RedX.Regulator.System.SysInfo">
+    <Position X="9.75" Y="7.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAQACAAAAAAAAAAAAAAAAAAAAAAABAAggAAAAIAA=</HashCode>
+      <FileName>Regulator\System\SystemInformation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="RedX.Regulator.DBAccess.Generic.IConnect&lt;T&gt;">
+    <Position X="6.5" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Regulator\DBAccess\Generics\IConnect.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="RedX.Regulator.DBAccess.Exceptions.ExceptionGravity">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAgAAgAAAAgAAAAAAAAAAAAIAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Regulator\DBAccess\Exceptions\DbGenericException.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
