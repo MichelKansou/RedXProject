@@ -23,6 +23,7 @@ namespace RedX.Service.Util{
         public static String LogPath { get { return _LOG_OUTPATH; } }
         public static String LogFile { get { return _LOG_OUTFILE; } }
 
+        // Update interval used by the service
         public static readonly long Interval = 300000;
 
         // Target (dir to save) 

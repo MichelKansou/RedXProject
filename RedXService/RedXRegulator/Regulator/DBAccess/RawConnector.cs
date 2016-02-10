@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RedX.Regulator.DBAccess{
+    /// <summary>
+    /// Raw Connector, no Exception handling done.
+    /// </summary>
     public class RawConnector{
         private static SqlServerConnector connector = null;
 

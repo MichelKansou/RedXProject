@@ -12,11 +12,16 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace RedX.Regulator.DBAccess{
+    /// <summary>
+    /// Data Access Layer, will be connected to the base (won't be used directly by the user through a raw connection).
+    /// </summary>
     public class SqlServerConnector : Generics.GenericDbConnector<RedX.Regulator.System.SysInfo>{
-        private bool isSuccessfull;
+        private bool isSuccessful;
 
         public SqlServerConnector(){
-            isSuccessfull = false;
+            isSuccessful = false;
+
+            // Mutex to avoid Concurrency
             m_lock = new Mutex();
 
             client = new SqlConnection();
@@ -31,23 +36,36 @@ namespace RedX.Regulator.DBAccess{
             }
         }
 
-        public override Boolean Add(params SysInfo[] infos){ 
-            isSuccessfull = false;
+        /// <summary>
+        /// Add several SysInfo structures
+        /// </summary>
+        /// <param name="infos"></param>
+        /// <returns>Successful </returns>
+        public override Boolean Add(params SysInfo[] infos){
+            isSuccessful = false;
             foreach (var info in infos)
-                isSuccessfull |= Add(info);
-            return isSuccessfull;
+                isSuccessful |= Add(info);
+            return isSuccessful;
         }
 
+        /// <summary>
+        /// Get an OS id by its name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [Obsolete("Used in the Prior version of the Database.")]
         private String GetOsByName(String name){
             m_lock.WaitOne();
             OpenConnection();
+
             using (var lastCommand = new SqlCommand("SELECT id FROM OS WHERE OSname = @name", client)){
                 lastCommand.Parameters.AddWithValue("@name", name);
-                m_lock.ReleaseMutex();
-
+                
                 using (SqlDataReader reader = lastCommand.ExecuteReader()){
                     if (reader.HasRows){
                         reader.Read();
+                        m_lock.ReleaseMutex();
+
                         return reader.GetString(0); 
                     }
                 }
@@ -55,10 +73,20 @@ namespace RedX.Regulator.DBAccess{
             return null;
         }
 
+        /// <summary>
+        /// Set up parameters for SQL Insert 
+        /// </summary>
+        /// <param name="info">Structure to use</param>
+        /// <returns></returns>
         private String QueryParameters(SysInfo info){
             return "( '" + info.Date.ToString("yyyy/MM/dd HH:mm:ss") + "','" + info.Environment + "'," + info.PercentageRAM + "," + info.PercentageCPU +")";
         }
 
+        /// <summary>
+        /// Add data (from SysInfo structure)
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns> If the operation failed</returns>
         public override Boolean Add(SysInfo info){
             lastQuery = Const.INSERT.Replace("@table", Const.PERFORMANCE_TABLE) + QueryParameters(info);
 
@@ -75,11 +103,16 @@ namespace RedX.Regulator.DBAccess{
             return (hResult <= 0); 
         }
 
+        /// <summary>
+        /// Remove values from the History
+        /// </summary>
+        /// <param name="infos"></param>
+        /// <returns></returns>
         public Boolean Delete(params SysInfo[] infos){
-            isSuccessfull = false;
+            isSuccessful = false;
             foreach (var info in infos)
-                isSuccessfull |= Delete(info);
-            return isSuccessfull;
+                isSuccessful |= Delete(info);
+            return isSuccessful;
         }
 
         public Boolean Delete(SysInfo info){
@@ -90,6 +123,9 @@ namespace RedX.Regulator.DBAccess{
             if (client != null && client.State == ConnectionState.Closed) client.Open();
         }
 
+        /// <summary>
+        /// Clear the temporary history if its size is higher than the Max Length
+        /// </summary>
         protected override void CheckHistory(){
             if (infoCollection.Count > HistoryLength)
                 infoCollection.RemoveAt(0);

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RedX.Service.IO.Generics{
+    /// <summary>
+    /// Generic writer.
+    /// </summary>
     public class GenericFileWriter : IFWriter {
         protected String _path;
         protected String _file;
@@ -26,6 +29,11 @@ namespace RedX.Service.IO.Generics{
         }
 
 
+        /// <summary>
+        /// Write into a file.
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns>Success or not</returns>
         public virtual bool WriteIntoFile(String content){
             try{
                 using (var file = new System.IO.StreamWriter(_final, true)){
@@ -38,17 +46,28 @@ namespace RedX.Service.IO.Generics{
             return _lastOp = true;
         }
 
-
+        /// <summary>
+        /// Check if a directory exists or not
+        /// </summary>
+        /// <returns>Exists.</returns>
         public bool CheckDirectory(){
             return Directory.Exists(_path);
         }
 
+        /// <summary>
+        /// Create the target directory if this one does not exist.
+        /// </summary>
+        /// <returns></returns>
         public bool CreateDirectory(){
             if (!CheckDirectory())
                 return (_lastOp |= (Directory.CreateDirectory(_path) != null));
             return false;
         }
 
+        /// <summary>
+        /// Create the targeted file
+        /// </summary>
+        /// <returns></returns>
         public virtual bool CreateFile(){
             _lastOp = CreateDirectory();
             FileStream fs;

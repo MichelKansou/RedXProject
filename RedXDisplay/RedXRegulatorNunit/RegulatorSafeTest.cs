@@ -22,7 +22,7 @@ namespace RedXRegulatorNunit{
 
         [TestMethod]
         //[ExpectedException(typeof(RawInitException),"Aucune Erreur reçue", AllowDerivedTypes=true)]
-        public void TestCreate(){
+        public void TestCreateSecure(){
             SecuredConnector sc = new SecuredConnector();
             Assert.IsNotNull(sc);
         }
@@ -42,6 +42,7 @@ namespace RedXRegulatorNunit{
             Console.WriteLine(info.Date.ToString("yyyy-MM-dd HH:mm:ss"));
             Console.WriteLine(rc.Add(info));
             Assert.IsTrue(rc.History().Count > 0);
+            rc.History().RemoveAt(0);
         }
 
         [TestMethod]
@@ -49,8 +50,8 @@ namespace RedXRegulatorNunit{
         public void TestAdd(){
             SecuredConnector sc = new SecuredConnector();
             Assert.IsNotNull(sc);
-            SysInfo info = new SysInfo();
 
+            SysInfo info = new SysInfo();
             info.Environment = Environment.OSVersion.VersionString;
             var data = RedX.Diagnostics.Client.SystemDiagnostics.SystemInfo();
 

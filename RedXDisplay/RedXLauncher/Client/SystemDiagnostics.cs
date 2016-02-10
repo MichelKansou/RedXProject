@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using RedX.Diagnostics.Client.Exceptions;
 
-
-
 namespace RedX.Diagnostics.Client{
     public class SystemDiagnostics{
+        /// <summary>
+        /// Retrieve practical data about the system.
+        /// </summary>
+        /// <returns>Array of doubles, first element is CPU, the second RAM</returns>
         public static double[] SystemInfo(){
             var cCounter = 0;
             var rCounter = 0;
@@ -35,10 +37,14 @@ namespace RedX.Diagnostics.Client{
             return new double[]{cCounter, percentage};
         }
 
+        /// <summary>
+        /// Check if we can launch the applications
+        /// </summary>
+        /// <returns></returns>
         public static bool CanLaunch(){
             var diagnostic = SystemInfo();
-            CanLaunch(diagnostic[0], diagnostic[1], null);
-            return true;
+
+            return CanLaunch(diagnostic[0], diagnostic[1], null);
         }
         
         public static bool CanLaunch(double cpu, double ram, double? disk){

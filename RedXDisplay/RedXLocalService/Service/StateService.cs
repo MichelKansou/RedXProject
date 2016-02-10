@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RedX.Service{
+    /// <summary>
+    /// Group all available states
+    /// </summary>
     public enum ServiceState{
         SERVICE_STOPPED = 0x00000001,
         SERVICE_START_PENDING = 0x00000002,
@@ -16,6 +19,9 @@ namespace RedX.Service{
         SERVICE_PAUSED = 0x00000007,
     }
 
+    /// <summary>
+    /// Define the way the data are stored physically.
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct ServiceStatus{
         public long dwServiceType;

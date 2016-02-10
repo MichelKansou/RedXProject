@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RedX.Regulator.DBAccess.Framework{
+    /// <summary>
+    /// Improved version of Raw Connector, handles Exceptions
+    /// </summary>
     public sealed class SecuredConnector {
         private RawConnector r_connector;
  
@@ -25,6 +28,9 @@ namespace RedX.Regulator.DBAccess.Framework{
                 throw new RawConnException(e, "ActionNotAvailableException", ExceptionGravity.MEDIUM);
             }
         }
-        
+
+        public Collection.SysInfoCollection History(){
+            return r_connector.History();
+        }
     }
 }
