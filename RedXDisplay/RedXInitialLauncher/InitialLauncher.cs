@@ -9,6 +9,7 @@ using RedX.Diagnostics.Client.Exceptions;
 using RedX.Launcher.Const;
 using System.ServiceProcess;
 using System.Linq.Expressions;
+using RedXInitialLauncher.Properties;
 
 namespace RedX.Launcher{
     internal class InitialLauncher{
@@ -24,8 +25,8 @@ namespace RedX.Launcher{
         private readonly static Action<String> lambda_Err = (@in) => { Console.Error.WriteLine(@in); };
         private readonly static Action<String> ProcessStart = (displayType) => {
             var process = new Process();
-            process.StartInfo.FileName = Const.Const.GetCurrentDir /*@"C:\Users\Axel\Source\Repos\RedXProject\RedXDisplay\WindowsFormsApplication1\bin\Debug\"*/ + "WindowsFormsApplication1.exe"; // Définir le chemin d'accès au processus
-            process.StartInfo.Arguments = displayType;
+            process.StartInfo.FileName = Const.Const.GetCurrentDir + "\\" + ProcessName + ".exe"; // Définir le chemin d'accès au processus
+            process.StartInfo.Arguments = displayType; //Unlock when parameters available
             process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
             process.Start();
         };
@@ -35,13 +36,25 @@ namespace RedX.Launcher{
         /// Starting Service
         /// </summary>
         private static void StartService(){
+            ImpersonateUser iu = new ImpersonateUser();
+            
+            iu.Impersonate(@".", "Axel", Settings.Default.Password);
+
             using (var controller = new ServiceController("RedXService")){
+                ServiceControllerPermission scp = new ServiceControllerPermission(ServiceControllerPermissionAccess.Control, ".", "RedXService");
+                scp.Assert();
+
                 controller.Refresh();
-                if (controller.Status != ServiceControllerStatus.Running)
+                if (controller.Status != ServiceControllerStatus.Running){
                     controller.Start();
-                
+                }
+                controller.WaitForStatus(ServiceControllerStatus.StartPending);
+                controller.WaitForStatus(ServiceControllerStatus.Running);
+
                 controller.Refresh();
             }
+  
+            iu.Undo();
         }
 
         /// <summary>
@@ -84,15 +97,26 @@ namespace RedX.Launcher{
                         ProcessStart.Invoke(Console.ReadLine());
                         StartService();
                     }    
-                } catch(LauncherGenericException e){
-                    TextDisplay(lambda_Err, "Le processus ne peut être démarré dû à un des composants suivant: Usage CPU ou usage RAM.");
+                } catch(RamException e){
+                    TextDisplay(lambda_Err, "Le processus ne peut pas être démarré. Raison : ", e.ToString());
                     Environment.Exit((int)(e.Status));
-                } catch(Exception e){
-                    TextDisplay(lambda_Err, "Une erreur inconnue bloque le démarrage de l'application: {0}, {1}", e.Source, e.StackTrace);
+                }
+                catch (CpuException e){
+                    TextDisplay(lambda_Err, "Le processus ne peut pas être démarré. Raison : ", e.ToString());
+                    Environment.Exit((int)(e.Status));
+                }
+                catch (LauncherGenericException e){
+                    TextDisplay(lambda_Err, "Le processus ne peut pas être démarré. Raison : ", e.ToString());
+                    Environment.Exit((int)(e.Status));
+                }
+                catch (Exception e){
+                    TextDisplay(lambda_Err, "Une erreur inconnue bloque le démarrage de l'application: ", e.Message, e.StackTrace);
                     Environment.Exit((int)(ExceptionStatus.INTERRUPT));
                 }
             }
 
         }
     }
+
+    
 }
