@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1.IO
         /// Permet de rafraichir la liste d'image à partir du dossier, tout en filtrant les extensions
         /// </summary>
         public void Refresh(){
-            try {
+            try{
                 this.pathPicture = new List<string>();
                 this.pathGif = new List<string>();
                 System.IO.Directory.GetFiles(Const.IO.PathPictures).ToList().ForEach(
@@ -49,20 +49,19 @@ namespace WindowsFormsApplication1.IO
                 System.IO.Directory.GetDirectories(Const.IO.PathGifs).ToList().ForEach(
                     delegate (string s)
                     {
-                        if (System.IO.Directory.GetFiles(s).Length == 4)
+                        if (System.IO.Directory.GetFiles(s).Length >= 4)
                             this.pathGif.Add(s);
                     });
                 Check();
             }
-            catch{
-
-            }
+            catch{}
         }
 
         /// <summary>
         /// Vérifie qu'il n'y a pas d'erreur sur notre liste d'image
         /// </summary>
-        private void Check(){
+        private void Check()
+        {
             if (this.pathPicture == null || this.pathPicture.Count < 1)
                 throw new Exception("Pas d'image :/");
         }

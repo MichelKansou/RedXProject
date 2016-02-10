@@ -16,6 +16,10 @@ namespace WindowsFormsApplication1
         Form1 Form;
         bool started;
 
+        Form1.Decre decr;
+        Form1.Incre incr;
+        Form1.Shows shows;
+
         public Management(Form1 _form)
         {
             InitializeComponent();
@@ -25,7 +29,7 @@ namespace WindowsFormsApplication1
                 this.trackBar1.Maximum = 0;
                 this.label4.Visible = false;
             }
-            //ChangeInPicture();
+            ChangeInPicture();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -92,6 +96,10 @@ namespace WindowsFormsApplication1
             StopTimer();
             this.groupBox1.Visible = false;
             this.groupBox2.Visible = true;
+            this.decr = this.Form.DecrementGif;
+            this.incr = this.Form.IncrementGif;
+            this.shows = this.Form.ShowGif;
+            this.incr.Invoke();
         }
 
         private void ChangeInPicture()
@@ -99,22 +107,35 @@ namespace WindowsFormsApplication1
             StartTimer();
             this.groupBox1.Visible = true;
             this.groupBox2.Visible = false;
+            this.decr = this.Form.DecrementPicture;
+            this.incr = this.Form.IncrementPicture;
+            this.shows = this.Form.ShowPicture;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Form.Increment();
+            this.incr.Invoke();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.Form.Decrement();
+            this.decr.Invoke();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (this.numericUpDown1.Value >= 1 && this.numericUpDown1.Value <= 100)
                 this.Form.timer1.Interval = (int)(this.numericUpDown1.Value * 1000);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.incr.Invoke();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.decr.Invoke();
         }
     }
 }

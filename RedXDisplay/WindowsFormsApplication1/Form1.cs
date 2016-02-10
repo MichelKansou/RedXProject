@@ -14,12 +14,15 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         private int i = 0;
+        private int j = 0;
+
         public delegate void Shows(string path);
+        public delegate void Incre();
+        public delegate void Decre();
 
         public Form1()
         {
             InitializeComponent();
-
             if (!Directory.Exists(Const.IO.PathPictures))
                 Directory.CreateDirectory(Const.IO.PathPictures);
 
@@ -31,7 +34,7 @@ namespace WindowsFormsApplication1
             this.timer1.Interval = 1000;
             Management man = new Management(this);
             man.Show();
-            //ShowGif("C:\\Users\\Alexandre\\Desktop\\Gifs\\Ours");
+           //ShowGif("C:\\Users\\Alexandre\\Desktop\\Gifs\\Ours");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,33 +55,69 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Increment();
+            IncrementPicture();
         }
 
-
-        public void Increment()
+        #region Increment/Decrement
+        public void IncrementPicture()
         {
-            ShowPicture(IO.ManageImage.GetInstance().pathPicture[i]);
-            if ((i + 1) >= IO.ManageImage.GetInstance().pathPicture.Count)
-                i = 0;
-            else
-                i++;
+            try
+            {
+                ShowPicture(IO.ManageImage.GetInstance().pathPicture[i]);
+                if ((i + 1) >= IO.ManageImage.GetInstance().pathPicture.Count)
+                    i = 0;
+                else
+                    i++;
+            }
+            catch { }
         }
 
-        public void Decrement()
+        public void DecrementPicture()
         {
-            if ((i - 1) < 0)
-                i = IO.ManageImage.GetInstance().pathPicture.Count -1;
-            else
-                i--;
-            ShowPicture(IO.ManageImage.GetInstance().pathPicture[i]);
+            try
+            {
+                if ((i - 1) < 0)
+                    i = IO.ManageImage.GetInstance().pathPicture.Count - 1;
+                else
+                    i--;
+                ShowPicture(IO.ManageImage.GetInstance().pathPicture[i]);
+            }
+            catch { }
         }
 
+        public void IncrementGif()
+        {
+            try
+            {
+                ShowGif(IO.ManageImage.GetInstance().pathGif[j]);
+                if ((j + 1) >= IO.ManageImage.GetInstance().pathGif.Count)
+                    j = 0;
+                else
+                    j++;
+            }
+            catch { }
+        }
+
+        public void DecrementGif()
+        {
+            try
+            {
+                if ((j - 1) < 0)
+                    j = IO.ManageImage.GetInstance().pathGif.Count - 1;
+                else
+                    j--;
+                ShowGif(IO.ManageImage.GetInstance().pathGif[j]);
+            }
+            catch { }
+        }
+        #endregion
+
+        #region Show
         /// <summary>
         /// Affiche un gif dans toutes les rotations
         /// </summary>
         /// <param name="path"></param>
-        private void ShowGif(string path)
+        public void ShowGif(string path)
         {
             List<string> pathGif = System.IO.Directory.GetFiles(path).ToList();
             if (pathGif.Count < 4) throw new Exception("Erreur dossier gif");
@@ -92,7 +131,7 @@ namespace WindowsFormsApplication1
         /// Affiche une image dans toutes les rotations
         /// </summary>
         /// <param name="path">Le chemin de l'image</param>
-        private void ShowPicture(string path)
+        public void ShowPicture(string path)
         {
             try
             {
@@ -132,6 +171,6 @@ namespace WindowsFormsApplication1
                 ShowPicture(path);
             }
         }
-       
+        #endregion
     }
 }
