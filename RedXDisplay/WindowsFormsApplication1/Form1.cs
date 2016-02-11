@@ -29,13 +29,16 @@ namespace WindowsFormsApplication1
             if (!Directory.Exists(Const.IO.PathGifs))
                 Directory.CreateDirectory(Const.IO.PathGifs);
 
-            /*this.axWindowsMediaPlayer1.URL = "C:\\Users\\Alexandre\\Videos\\Gotham.S02E09.avi";
-            this.axWindowsMediaPlayer1.Ctlcontrols.play();*/
+            if (!Directory.Exists(Const.IO.PathVids))
+                Directory.CreateDirectory(Const.IO.PathVids);
+
+
             this.timer1.Interval = 1000;
             Management man = new Management(this);
             man.Show();
-           //ShowGif("C:\\Users\\Alexandre\\Desktop\\Gifs\\Ours");
+            //ShowGif("C:\\Users\\Alexandre\\Desktop\\Gifs\\Ours");
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -59,10 +62,12 @@ namespace WindowsFormsApplication1
         }
 
         #region Increment/Decrement
+        /// <summary>
+        /// Incremente l'index des images et affiche l'image associée à l'index, retourne à 0  si index est supérieur au max
+        /// </summary>
         public void IncrementPicture()
         {
-            try
-            {
+            try {
                 ShowPicture(IO.ManageImage.GetInstance().pathPicture[i]);
                 if ((i + 1) >= IO.ManageImage.GetInstance().pathPicture.Count)
                     i = 0;
@@ -72,10 +77,12 @@ namespace WindowsFormsApplication1
             catch { }
         }
 
+        /// <summary>
+        /// Décremente l'index des images et affiche l'image associée à l'index, retourne au max si index est inférieur à 0
+        /// </summary>
         public void DecrementPicture()
         {
-            try
-            {
+            try {
                 if ((i - 1) < 0)
                     i = IO.ManageImage.GetInstance().pathPicture.Count - 1;
                 else
@@ -85,6 +92,9 @@ namespace WindowsFormsApplication1
             catch { }
         }
 
+        /// <summary>
+        /// Incremente l'index des gifs et affiche le gif associé à l'index, retourne à 0  si index est supérieur au max
+        /// </summary>
         public void IncrementGif()
         {
             try
@@ -98,10 +108,12 @@ namespace WindowsFormsApplication1
             catch { }
         }
 
+        /// <summary>
+        /// Décremente l'index des gifs et affiche le gif associé à l'index, retourne au max si index est inférieur à 0
+        /// </summary>
         public void DecrementGif()
         {
-            try
-            {
+            try {
                 if ((j - 1) < 0)
                     j = IO.ManageImage.GetInstance().pathGif.Count - 1;
                 else
@@ -171,6 +183,26 @@ namespace WindowsFormsApplication1
                 ShowPicture(path);
             }
         }
+
+        public void ShowVideo(string path)
+        {
+            try
+            {
+                this.axWindowsMediaPlayer1.Visible = true;
+                this.axWindowsMediaPlayer1.URL = path;
+                this.axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
+            catch { }
+        }
         #endregion
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            this.axWindowsMediaPlayer1.Height = this.Height -45;
+            this.axWindowsMediaPlayer1.Width = this.Width;
+            int with = this.Width - this.panel1.Width;
+            int hei = this.Height - this.panel1.Height;
+            this.panel1.Location = new Point(with / 2, hei / 2);
+        }
     }
 }

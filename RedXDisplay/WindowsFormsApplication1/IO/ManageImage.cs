@@ -35,8 +35,9 @@ namespace WindowsFormsApplication1.IO
         /// <summary>
         /// Permet de rafraichir la liste d'image à partir du dossier, tout en filtrant les extensions
         /// </summary>
-        public void Refresh(){
-            try{
+        public void Refresh()
+        {
+            try {
                 this.pathPicture = new List<string>();
                 this.pathGif = new List<string>();
                 System.IO.Directory.GetFiles(Const.IO.PathPictures).ToList().ForEach(
@@ -117,6 +118,9 @@ namespace WindowsFormsApplication1.IO
             Refresh();
         }
 
+        /// <summary>
+        /// Libère l'objet
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);

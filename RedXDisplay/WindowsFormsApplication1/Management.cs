@@ -87,8 +87,23 @@ namespace WindowsFormsApplication1
         {
             if (this.trackBar1.Value == 1)
                 ChangeInGif();
-            else if(this.trackBar1.Value == 0)
+            else if (this.trackBar1.Value == 0)
                 ChangeInPicture();
+            else if (this.trackBar1.Value == 2)
+                ChangeInVideo();
+        }
+
+        private void ChangeInVideo()
+        {
+            try
+            {
+                StopTimer();
+                this.groupBox1.Visible = false;
+                this.groupBox2.Visible = false;
+                this.Form.ShowVideo(Const.IO.PathVids + @"\Hologram Project by Kiste.mp4");
+                this.Form.panel1.Visible = false;
+            }
+            catch { }
         }
 
         private void ChangeInGif()
@@ -96,10 +111,12 @@ namespace WindowsFormsApplication1
             StopTimer();
             this.groupBox1.Visible = false;
             this.groupBox2.Visible = true;
+            this.Form.axWindowsMediaPlayer1.Visible = false;
             this.decr = this.Form.DecrementGif;
             this.incr = this.Form.IncrementGif;
             this.shows = this.Form.ShowGif;
             this.incr.Invoke();
+            this.Form.panel1.Visible = true;
         }
 
         private void ChangeInPicture()
@@ -107,9 +124,12 @@ namespace WindowsFormsApplication1
             StartTimer();
             this.groupBox1.Visible = true;
             this.groupBox2.Visible = false;
+            this.Form.axWindowsMediaPlayer1.Visible = false;
+            this.Form.axWindowsMediaPlayer1.Ctlcontrols.pause();
             this.decr = this.Form.DecrementPicture;
             this.incr = this.Form.IncrementPicture;
             this.shows = this.Form.ShowPicture;
+            this.Form.panel1.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e)

@@ -22,5 +22,18 @@ namespace RedX.Regulator.System{
         public static bool CheckInfo(SysInfo info) {
             return (info.Environment != null || info.Environment.Equals("")) && info.Date != null && info.PercentageCPU != null && info.PercentageRAM != null;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override String ToString(){
+            String otherData = "";
+            if(Other != null)
+                foreach (var info in Other)
+                    otherData += info;
+
+            return "OS: " + Environment + " at " + Date.ToString() + " : CPU at " + PercentageCPU + "%, RAM at " + PercentageRAM + "%. " + otherData;
+        }
     }
 }

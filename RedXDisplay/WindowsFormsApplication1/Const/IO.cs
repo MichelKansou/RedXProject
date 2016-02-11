@@ -12,7 +12,8 @@ namespace WindowsFormsApplication1.Const
     public class IO
     {
         public static readonly string PathPictures = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\Pictures";
-        public static readonly string PathGifs = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\Gifs";
+        public static readonly string PathGifs = PathPictures.Replace(@"\Pictures",@"\Gifs");
+        public static readonly string PathVids = PathGifs.Replace(@"\Gifs", @"\Video");
         public static readonly string[] SupportedExtension = new string[] { ".PNG", ".BMP", ".GIF", ".JEPG", ".JPG" };
     }
 }

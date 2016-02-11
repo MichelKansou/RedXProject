@@ -107,7 +107,8 @@ namespace RedXLocalService{
                                 wLog.WriteIntoFile("Une erreur sans incidence à été reportée.");
                         }
 
-                        wLog.WriteIntoFile("Données sauvegardées sur la base distante");
+                        wLog.WriteIntoFile("--------- Dernière donnée sauvegardée ");
+                        wLog.WriteIntoFile("OS: " + lastData.Environment + " at " + lastData.Date.ToString() + " : CPU at " + lastData.PercentageCPU + "%, RAM at " + lastData.PercentageRAM + "%. ");
                     }
                 );
             }
